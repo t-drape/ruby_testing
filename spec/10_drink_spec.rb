@@ -91,13 +91,16 @@ describe Drink do
     context 'when type is specified and ounces is default' do
       # Create an explicit subject, using 'described_class' and your choice of
       # beverage type.
+      subject(:my_bev) { described_class.new('kombucha') }
 
       # remove the 'x' before running this test
-      xit 'is your choice of beverage' do
+      it 'is your choice of beverage' do
+        expect(my_bev.type).to be('kombucha')
       end
 
       # remove the 'x' before running this test
-      xit 'has 16 ounces' do
+      it 'has 16 ounces' do
+        expect(my_bev.ounces).to eql(16)
       end
     end
   end
@@ -106,18 +109,22 @@ describe Drink do
     context 'when drink has 16 ounces or more' do
       # Create an explicit subject, using 'described_class' and your choice of
       # beverage type.
+      subject(:new_bev) { described_class.new('kombucha', 32) }
 
       # remove the 'x' before running this test
-      xit 'is full' do
+      it 'is full' do
+        expect(new_bev.full?).to be true
       end
     end
 
     context 'when drink has less than 16 ounces' do
       # Create an explicit subject, using 'described_class' and your choice of
       # beverage type. In addition, specify ounces to be any number under 16.
+      subject(:drank_bev) { described_class.new('cubano', 4) }
 
       # remove the 'x' before running this test
-      xit 'is not full' do
+      it 'is not full' do
+        expect(drank_bev.full?).to be false
       end
     end
   end
