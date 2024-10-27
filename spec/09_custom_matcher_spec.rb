@@ -37,28 +37,35 @@ describe 'one word palindrome test' do
   # Write a custom matcher that detects a one word palindrome,
   # using the following block: { |word| word.reverse == word }
   # When it is set up correctly, all of the following tests will pass.
+  describe 'custom matcher to detect palindrome' do
+    context 'when string a reversed is the same as string a' do
+      matcher :be_a_palindrome do
+        match { |string| string == string.reverse }
+      end
 
-  context 'when a palindrome is used' do
-    # remove the 'x' before running this test
-    xit 'is a palindrome' do
-      expect(racecar).to be_a_palindrome
-    end
+      context 'when a palindrome is used' do
+        # remove the 'x' before running this test
+        it 'is a palindrome' do
+          expect(racecar).to be_a_palindrome
+        end
 
-    # remove the 'x' before running this test
-    xit 'is a palindrome' do
-      expect(rotator).to be_a_palindrome
-    end
-  end
+        # remove the 'x' before running this test
+        it 'is a palindrome' do
+          expect(rotator).to be_a_palindrome
+        end
+      end
 
-  context 'when a palindrome is not used' do
-    # remove the 'x' before running this test
-    xit 'is not a palindrome' do
-      expect(spaceship).not_to be_a_palindrome
-    end
+      context 'when a palindrome is not used' do
+        # remove the 'x' before running this test
+        it 'is not a palindrome' do
+          expect(spaceship).not_to be_a_palindrome
+        end
 
-    # remove the 'x' before running this test
-    xit 'is not a palindrome' do
-      expect(palindrome).not_to be_a_palindrome
+        # remove the 'x' before running this test
+        it 'is not a palindrome' do
+          expect(palindrome).not_to be_a_palindrome
+        end
+      end
     end
   end
 end
