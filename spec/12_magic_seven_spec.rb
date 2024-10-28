@@ -70,34 +70,64 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    context 'when the previous step is 9' do
+      it 'returns 5' do
+        random_number = 9
+        result = game.subtract_four(random_number)
+        expect(result).to eql(5)
+      end
+    end
   end
 
   describe '#divide_by_two' do
+    context 'when the previous step is 8' do
+      it 'returns 4' do
+        result = game.divide_by_two(8)
+        expect(result).to eql(4)
+      end
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    subject(:new_game) { described_class.new(8) }
+
+    context 'when the random number is 8, and the number is 16' do
+      it 'returns 8' do
+        result = new_game.subtract_random_number(16)
+        expect(result).to eql(8)
+      end
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
-    context 'when the random number is ...' do
+    context 'when the random number is 4' do
+      subject(:game) { described_class.new(4) }
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      it 'will return 7' do
+        result = game.play
+        expect(result).to eql(7)
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 100' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      subject(:game) { described_class.new(100) }
+      it 'will return 7' do
+        result = game.play
+        expect(result).to eql(7)
       end
     end
 
-    context 'when the random number is ...' do
+    context 'when the random number is 30,000,000' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      subject(:game) { described_class.new(30_000_000) }
+      it 'will return 7' do
+        result = game.play
+        expect(result).to eql(7)
       end
     end
   end
