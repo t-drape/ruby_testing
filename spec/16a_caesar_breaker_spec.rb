@@ -177,6 +177,7 @@ describe CaesarBreaker do
 
     it 'dumps to yaml' do
       expect(YAML).to receive(:dump).once
+      # phrase.save_to_yaml is better!
       phrase.save_decrypted_messages
     end
   end
